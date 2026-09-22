@@ -26,7 +26,9 @@ if ($result && $result->num_rows > 0) {
         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     ">
 
-        <h3><?php echo htmlspecialchars($row["name"]); ?></h3>
+        <h3>
+            <?php echo htmlspecialchars($row["name"]); ?>
+        </h3>
 
         <p style="margin-top: 10px;">
             <?php echo htmlspecialchars($row["description"]); ?>
@@ -46,6 +48,37 @@ if ($result && $result->num_rows > 0) {
             <strong>Available:</strong>
             <?php echo $row["available_quantity"]; ?>
         </p>
+
+        <!-- Add product to shopping cart -->
+        <form
+            method="post"
+            action="cart.php"
+            style="margin-top: 15px;"
+        >
+
+            <input
+                type="hidden"
+                name="product_id"
+                value="<?php echo $row["product_id"]; ?>"
+            >
+
+            <label>Quantity:</label>
+
+            <input
+                type="number"
+                name="quantity"
+                value="1"
+                min="1"
+                max="<?php echo $row["available_quantity"]; ?>"
+                style="width: 60px;"
+                required
+            >
+
+            <button type="submit" name="add_to_cart">
+                Add to Cart
+            </button>
+
+        </form>
 
     </div>
 
