@@ -58,6 +58,7 @@
         <a href="catalog.php">Catalog</a>
         <a href="cart.php">Cart</a>
         <a href="checkout.php">Checkout</a>
+        <a href="manage_products.php">Manage Products</a>
     </nav>
 </header>
 
